@@ -6,3 +6,4 @@ __pycache__/
 .DS_Store
 node_modules/
 Archive/
+URL-to-final-ingredients/venv/
