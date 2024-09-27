@@ -1,0 +1,42 @@
+.header {
+    background-color: #B0D9CF;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    z-index: 1000;
+    width: 100%; /* Ensure full width */
+  }
+  
+  .logo {
+    height: 48px;
+    width: auto;
+    margin-left: 40px;
+  }
+
+  /* Medium Screen */
+  @media (max-width: 880px) {
+    .header {
+      height: 60px;
+    }
+  
+    .logo {
+      height: 40px;
+      margin-left: 40px;
+    }
+  }
+  
+  /* Small Screen */
+  @media (max-width: 479px) {
+    .header {
+      height: 50px;
+    }
+  
+    .logo {
+      height: 32px;
+      margin-left: 20px;
+    }
+  }

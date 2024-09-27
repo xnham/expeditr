@@ -1,0 +1,295 @@
+.home-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Large Screen */
+@media (min-width: 881px) {
+    .home-container {
+        width: 800px;
+    }
+}
+
+/* Medium Screen (480px to 880px) */
+@media (min-width: 480px) and (max-width: 880px) {
+    .home-container {
+        width: calc(100% - 80px);
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+/* Small Screen (479px and below) */
+@media (max-width: 479px) {
+    .home-container {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/* When the viewport height is larger than 820px */
+@media (min-height: 821px) {
+    .home-container {
+        justify-content: center;
+        min-height: 100vh;
+        margin-top: 0;
+        transform: translateY(-6%);
+    }
+}
+
+/* When the viewport height is 820px or smaller */
+@media (max-height: 820px) {
+    .home-container {
+        justify-content: flex-start;
+        min-height: auto;
+        margin-top: 0;
+        transform: none;
+    }
+}
+
+/* Container for title and carrot image */
+.title-and-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 30px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* General title styles */
+.title {
+    margin-top: 0px;
+    text-align: left;
+    max-width: 80%;
+}
+
+/* Darker text ("Recipe URLs" and "shopping list") */
+.title .darker-text {
+    color: #2F4858;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 110%;
+}
+
+/* Lighter text ("to" and "in seconds") */
+.title .lighter-text {
+    color: #658E95;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 110%;
+}
+
+/* Ensure "to shopping list" is on the same line */
+.title .to-shopping-list {
+    white-space: nowrap;
+}
+
+/* Large screen title size */
+@media (min-width: 881px) {
+
+    .title .darker-text,
+    .title .lighter-text {
+        font-size: 54px;
+    }
+}
+
+/* Medium Large title size */
+@media (min-width: 560px) and (max-width: 880px) {
+
+    .title .darker-text,
+    .title .lighter-text {
+        font-size: calc(32px + (54 - 32) * ((100vw - 480px) / (880 - 480)) * 0.7);
+    }
+}
+
+/* Medium Small title size */
+@media (min-width: 480px) and (max-width: 559px) {
+
+    .title .darker-text,
+    .title .lighter-text {
+        font-size: 30px;
+    }
+}
+
+/* Small screen title size */
+@media (max-width: 479px) {
+
+    .title .darker-text,
+    .title .lighter-text {
+        font-size: 28px;
+    }
+}
+
+/* Carrot image */
+.carrot-image {
+    position: absolute;
+    right: 0px;
+    z-index: 2000;
+    flex-shrink: 0;
+    max-width: 50%;
+}
+
+/* Large Screen carrot size */
+@media (min-width: 881px) {
+    .carrot-image {
+        height: 320px;
+        top: -70px;
+    }
+}
+
+/* Medium Large carrot size */
+@media (min-width: 560px) and (max-width: 880px) {
+    .carrot-image {
+        height: calc(240px + (320 - 240) * ((100vw - 480px) / (880 - 480)) * 0.7);
+        top: -80px;
+    }
+}
+
+/* Medium Small carrot size */
+@media (min-width: 480px) and (max-width: 559px) {
+    .carrot-image {
+        height: 200px;
+        top: -70px;
+    }
+}
+
+/* Small Screen carrot size */
+@media (min-width: 380px) and (max-width: 479px) {
+    .carrot-image {
+        height: 160px;
+        top: -50px;
+    }
+}
+
+/* Small Screen carrot size */
+@media (min-width: 330px) and (max-width: 379px) {
+    .carrot-image {
+        height: 120px;
+        top: -14px;
+    }
+}
+
+/* Small Screen carrot size */
+@media (max-width: 329px) {
+    .carrot-image {
+        height: 100px;
+        top: 0px;
+    }
+}
+
+/* "Paste up to 10 recipe URLs..." text */
+.paste-text {
+    color: #2F4858;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    opacity: 0.9;
+    margin-top: 0px;
+    text-align: left;
+}
+
+/* Small and Medium Screen adjustments for the "Paste up to..." text */
+@media (min-width: 331px) and (max-width: 880px) {
+    .paste-text {
+        font-size: 16px;
+    }
+}
+
+/* Very Small Screen adjustments for the "Paste up to..." text */
+@media (max-width: 330px) {
+    .paste-text {
+        font-size: 14px;
+    }
+}
+
+/* Textarea for recipe URLs */
+.url-input {
+    margin-top: 0px;
+    width: 100%;
+    height: 325px;
+    padding-top: 18px;
+    padding-left: 24px;
+    background-color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #243642;
+    line-height: 180%;
+}
+
+@media (max-width: 479px) {
+    .url-input {
+        padding-top: 12px;
+        padding-left: 18px;
+        font-size: 14px;
+    }
+}
+
+/* Placeholder text */
+.url-input::placeholder {
+    color: #2F485896;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 180%;
+}
+
+/* Small Screen-specific adjustments for the placeholder text */
+@media (max-width: 479px) {
+    .url-input::placeholder {
+        font-size: 14px;
+    }
+}
+
+/* Hover and focus effects for textarea */
+.url-input:hover,
+.url-input:focus,
+.url-input:active {
+    border-color: #14141460;
+    box-shadow: 0 0 8px #14141480;
+    outline: none;
+}
+
+/* "Prepare list" button */
+.prepare-button {
+    margin-top: 6px;
+    height: 60px;
+    width: 100%;
+    background-color: #2F4858;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Small Screen-specific adjustments for the button */
+@media (max-width: 880px) {
+    .prepare-button {
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* Hover effect for the button */
+.prepare-button:hover {
+    background-color: #243642;
+}
