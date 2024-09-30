@@ -13,7 +13,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%; /* Ensure the body takes up the full height */
-  font-family: var(--primary-font);
+  font-family: 'Roboto', sans-serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   line-height: 1.5;
@@ -39,40 +39,14 @@ body, html {
   min-height: 100vh; /* Make sure app content fills the screen */
 }
 
-/* Global styles for common elements */
+/* Global link formatting */
 a {
-  color: var(--primary-link-color);
-  text-decoration: none;
-  font-weight: 500;
+  color: #658E95;
+  text-decoration: underline;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
 a:hover, a:active {
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--visited-link-color);
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--button-bg-color);
-  color: white;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: var(--button-hover-border-color);
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: #2F4858;
 }

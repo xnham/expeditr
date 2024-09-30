@@ -1,0 +1,408 @@
+.ShoppingListHeader {
+    color: #2F4858;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 130%;
+    text-align: center;
+}
+
+.ListWrapper {
+    width: 800px;
+    /* Fixed table width for larger screens */
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.CategorySection {
+    margin: 0;
+    /* No gap between categories */
+}
+
+/* Category Header Row */
+.CategoryHeaderRow {
+    background-color: #658E95;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 130%;
+    height: 40px; /* Row height */
+    display: flex;
+    align-items: center;
+}
+
+.CategoryHeaderCheckbox {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.CategoryHeaderCheckbox i.fa-square-minus {
+    font-size: 23px;
+}
+
+.CategoryHeaderCheckbox i {
+    font-size: 23px;
+}
+
+.CategoryHeaderCell {
+    width: 740px;
+}
+
+.SubheadingRow {
+    display: grid;
+    grid-template-columns: 60px 240px 120px 360px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: 0.1em;
+    background-color: #EBF5F3;
+    color: #2F485890;
+    height: 30px;
+    /* Row height */
+    align-items: center;
+}
+
+.SubheadingCell {
+    text-align: left;
+}
+
+.ItemList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Regular Rows */
+.ListItem {
+    display: grid;
+    grid-template-columns: 60px 240px 120px 360px;
+    /* Fixed column widths */
+    align-items: stretch;
+    /* Stretch items to fill the row height */
+    background-color: #ffffff;
+    color: #2F4858;
+    border-top: 1px solid #B0D9CF;
+    min-height: 60px;
+    /* Minimum height for rows */
+}
+
+.ListItem:last-child {
+    border-bottom: none;
+}
+
+.CheckboxColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ingredient, Amount, and Recipe Columns */
+.IngredientColumn,
+.AmountColumn,
+.RecipeColumn {
+    display: flex;
+    align-items: center;
+    padding: 8px 0.5em 8px 0; /* top, right, bottom, left */
+    line-height: 130%;
+}
+
+.RecipeColumn {
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align items to the start of the column */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.RecipeURLContainer {
+    width: 100%; /* Ensure full width of the column */
+    margin-bottom: 0;
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    white-space: nowrap; /* Prevent wrapping */
+    padding-right: 1em;
+}
+
+.TruncatedLink {
+    display: block;
+    /* Make the link a block element to fill the container */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    /* Ensure the link takes full width of its container */
+}
+
+.RecipeURLContainer:last-child {
+    margin-bottom: 0;
+}
+
+.RecipeURLContainer a {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Checkboxes */
+.CheckboxColumn i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Unchecked State */
+.checkbox-icon.unchecked {
+    background-color: #ffffff;
+    /* White background */
+    color: #496A78;
+    /* Border and checkmark color */
+    border: 1px solid #496A78;
+    /* Border color */
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Checked State */
+.checkbox-icon.checked {
+    background-color: #496A78; /* Filled background when checked */
+    color: #ffffff; /* White checkmark */
+    border: 1px solid #496A78; /* Same border for consistency */
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add hover effect to indicate interactivity */
+.CheckboxColumn i:hover {
+    cursor: pointer;
+}
+
+.ShoppingListBottomSpacer {
+    height: 12vh;
+}
+
+/* Breakpoint for screens 501px to 820px */
+@media screen and (min-width: 501px) and (max-width: 820px) {
+    .ListWrapper {
+        width: calc(100% - 20px);
+        /* Full width minus 10px margin on each side */
+        margin: 0 10px;
+    }
+
+    .SubheadingRow,
+    .ListItem {
+        grid-template-columns: 40px 30% 16% 1fr;
+        /* Adjusted column widths */
+    }
+
+    .CheckboxColumn i {
+        font-size: 20px;
+    }
+
+    .IngredientColumn {
+        font-size: 14px;
+    }
+
+    .AmountColumn {
+        font-size: 14px;
+    }
+
+    .RecipeColumn {
+        width: 100%;
+        /* Ensure the column takes full width */
+        overflow: hidden;
+        /* Hide overflow */
+    }
+
+    .TruncatedLink {
+        max-width: 100%;
+        /* Ensure the link doesn't exceed its container */
+    }
+
+    .RecipeURLContainer a {
+        font-size: 14px;
+        width: 100%;
+        /* Ensure full width within the column */
+    }
+
+    .ShoppingListHeader {
+        font-size: 28px;
+        /* Slightly smaller header for mobile */
+    }
+
+    .CategoryHeaderRow {
+        font-size: 14px;
+        /* Slightly smaller category headers for mobile */
+    }
+
+    .CategoryHeaderCheckbox {
+        width: 40px;
+    }
+
+    .CategoryHeaderCheckbox i {
+        font-size: 19px;
+    }
+
+    .CategoryHeaderCheckbox i.fa-square-minus {
+        font-size: 19px;
+    }
+
+    .CategoryHeaderCell {
+        width: auto;
+    }
+
+    .SubheadingRow {
+        font-size: 12px;
+        /* Slightly smaller subheadings for mobile */
+    }
+}
+
+/* Hide toggler and collapsible row for screens wider than 500px */
+@media screen and (min-width: 501px) {
+    .ToggleColumn {
+        display: none;
+    }
+
+    .CollapsibleRow {
+        display: none;
+    }
+}
+
+/* Breakpoint for screens 500px and narrower */
+@media screen and (max-width: 500px) {
+
+    .ListWrapper {
+        width: calc(100% - 10px);
+        /* Full width minus 5px margin on each side */
+        margin: 0 5px;
+    }
+
+    .SubheadingRow,
+    .ListItem {
+        grid-template-columns: 40px auto 20% 80px;
+        /* Checkbox, Ingredient, Amount, Toggle */
+    }
+
+    .ListItem {
+        min-height: 50px;
+    }
+
+    .CheckboxColumn i {
+        font-size: 20px;
+    }
+
+    .IngredientColumn {
+        font-size: 14px;
+    }
+
+    .AmountColumn {
+        font-size: 14px;
+    }
+
+    .ShoppingListHeader {
+        font-size: 20px;
+        /* Slightly smaller header for mobile */
+    }
+
+    .CategoryHeaderRow {
+        font-size: 14px;
+        /* Slightly smaller category headers for mobile */
+    }
+
+    .CategoryHeaderCheckbox {
+        width: 40px;
+    }
+    
+    .CategoryHeaderCheckbox i {
+        font-size: 19px;
+    }
+
+    .CategoryHeaderCheckbox i.fa-square-minus {
+        font-size: 19px;
+    }
+
+    .CategoryHeaderCell {
+        width: auto;
+    }
+
+    .SubheadingRow {
+        font-size: 11px;
+        /* Slightly smaller subheadings for mobile */
+    }
+
+    .IngredientColumn {
+        padding-right: 8px;
+        /* Add some space between ingredient and amount */
+    }
+
+    .AmountColumn {
+        padding-right: 8px;
+        /* Add some space between amount and toggle */
+    }
+
+    .RecipeColumn {
+        display: none;
+        /* Hide the recipe column */
+    }
+
+    .ToggleColumn {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        cursor: pointer;
+        padding-left: 16px;
+    }
+
+    .ToggleColumn i {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .ToggleColumn i.fa-caret-down {
+        color: #496A78;
+    }
+
+    .ToggleColumn i.fa-caret-up {
+        color: #496A78;
+    }
+
+    .CollapsibleRow {
+        grid-column: 1 / -1;
+        padding: 10px;
+        background-color: #ffffff;
+        display: none;
+    }
+
+    .CollapsibleRow.open {
+        display: block;
+    }
+
+    .RecipeURLContainer a {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .RecipeURLContainer:last-child {
+        margin-bottom: 0;
+    }
+
+    .TruncatedLink {
+        display: inline;
+        white-space: normal;
+        word-break: break-all;
+    }
+}

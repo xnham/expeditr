@@ -52,7 +52,7 @@
     }
 }
 
-/* Container for title and carrot image */
+/* Container for title and vegetable image */
 .title-and-image {
     display: flex;
     flex-direction: row;
@@ -130,8 +130,8 @@
     }
 }
 
-/* Carrot image */
-.carrot-image {
+/* Vegetable image */
+.veg-image {
     position: absolute;
     right: 0px;
     z-index: 2000;
@@ -139,49 +139,49 @@
     max-width: 50%;
 }
 
-/* Large Screen carrot size */
+/* Large Screen vegetable size */
 @media (min-width: 881px) {
-    .carrot-image {
+    .veg-image {
         height: 320px;
         top: -70px;
     }
 }
 
-/* Medium Large carrot size */
+/* Medium Large vegetable size */
 @media (min-width: 560px) and (max-width: 880px) {
-    .carrot-image {
+    .veg-image {
         height: calc(240px + (320 - 240) * ((100vw - 480px) / (880 - 480)) * 0.7);
         top: -80px;
     }
 }
 
-/* Medium Small carrot size */
+/* Medium Small vegetable size */
 @media (min-width: 480px) and (max-width: 559px) {
-    .carrot-image {
+    .veg-image {
         height: 200px;
         top: -70px;
     }
 }
 
-/* Small Screen carrot size */
+/* Small Screen vegetable size */
 @media (min-width: 380px) and (max-width: 479px) {
-    .carrot-image {
+    .veg-image {
         height: 160px;
         top: -50px;
     }
 }
 
-/* Small Screen carrot size */
+/* Small Screen vegetable size */
 @media (min-width: 330px) and (max-width: 379px) {
-    .carrot-image {
+    .veg-image {
         height: 120px;
         top: -14px;
     }
 }
 
-/* Small Screen carrot size */
+/* Small Screen vegetable size */
 @media (max-width: 329px) {
-    .carrot-image {
+    .veg-image {
         height: 100px;
         top: 0px;
     }

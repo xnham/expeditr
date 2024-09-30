@@ -1,0 +1,25 @@
+ingredient_name,quantity,unit,category,recipe_URL
+Orange,2,,Produce,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Apple,3,lbs,Produce,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Cabbage,1,head,Produce,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta
+Arugula,8,oz,Produce,https://cooking.nytimes.com/recipes/1025165-mortadella-carbonara
+Broccoli rabe,1,lb,Produce,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo
+Asparagus,1,lb,Produce,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Bok choy,8,oz,Produce,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Thai chili,2,pieces,Produce,https://cooking.nytimes.com/recipes/1025165-mortadella-carbonara
+Chicken wings,1,lb,Meat/Poultry,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Boneless rib eye,1,lb,Meat/Poultry,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Ground pork,2,lbs,Meat/Poultry,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo
+Boneless skinless chicken thighs,1.5,lbs,Meat/Poultry,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Salmon,1.5,lbs,Seafood,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Cod,1.5,lbs,Seafood,https://cooking.nytimes.com/recipes/1025165-mortadella-carbonara; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Extra-firm tofu,14,oz,Dairy,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo
+Heavy cream,1,pint,Dairy,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo
+Mozzarella,0.5,lb,Dairy,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Dates,8,pieces,Other,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo
+Olive oil,0.25,cup,Pantry,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Baking soda,1,tsp,Pantry,https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Turmeric,1,tsp,Pantry,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta
+Ginger,2,inches,Pantry,https://cooking.nytimes.com/recipes/1025165-mortadella-carbonara
+Tomato paste,3,tbsp,Pantry,https://cooking.nytimes.com/recipes/1025601-grain-bowl-with-sardines-and-sauce-moyo; https://cooking.nytimes.com/recipes/1025358-sheet-pan-chicken-and-tomatoes-with-balsamic-tahini
+Garlic,5,cloves,Pantry,https://cooking.nytimes.com/recipes/1025233-garlicky-crab-and-brown-butter-pasta

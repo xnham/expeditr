@@ -3,32 +3,33 @@ import csv
 from anthropic import Anthropic, CLAUDE_3_OPUS_20240229
 
 def send_to_claude(ingredient_list):
-    # Create a client instance
     client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
-    # Prepare the prompt
-    prompt_text = (
-        "Please organize the ingredient list below into a comma-separated shopping list. "
-        "The columns are: ingredient name, quantity, unit, category, and recipe URL. "
-        "For example: tomato, 2, lbs, Vegetables, https://cooking.nytimes.com/recipes/1023371-sheet-pan-feta-with-chickpeas-and-tomatoes OR salt, 1, tsp, Pantry, https://cooking.nytimes.com/recipes/1023371-sheet-pan-feta-with-chickpeas-and-tomatoes OR firm tofu, 1, block, Dairy, https://cooking.nytimes.com/recipes/1016016-soba-noodles-with-shiitakes-broccoli-and-tofu "
-        "For 'category', assign each ingredient to one of these categories: Produce, Meat/Poultry, Seafood, Dairy, Other, Pantry.\n"
-        "Keep a few things in mind:\n"
-        "- Since you are creating a shopping list for shopping (not for cooking), make sure to remove any cooking prep details, such as 'chopped', 'rinsed', 'cooked', 'cubed', 'patted dry', 'smashed', 'cut crosswise', and other similar details.\n"
-        "- If you see the same ingredient listed multiple times, please add up the quantity."
-        "- Avoid using commas within an ingredient name, quantity, unit, or category."
-        "- Avoid punctuations in general."
-        "- Do not add a comma at the end of each category."
-        "- If an ingredient comes from multiple recipe URLs, please separate the recipe URLs with a semicolon."
-        "- When you see something like this 'Any combination of fresh herbs, such as basil, parsley, sage or oregano', notice that the word 'or' indicates options, so simply list the ingredient name the way it is written, i.e., 'Any combination of fresh herbs, such as basil, parsley, sage or oregano'." 
-        "- However, please also notice that when you see something like: 'Any combination of anchovies capers tuna black olives garlic and tomatoes', notice that the word 'and' means all the ingredients are necessary, so you can break it down into individual ingredients, which in this example are: anchovies, capers, tuna, black olives, garlic, and tomatoes. Each of these ingredients should get its own row."
-        "- If you see a fraction (e.g., 1/2), convert it to a decimal (e.g., 0.5)."
-        "- If the quantity is not specified, say 'to taste' for the quantity and 'n/a' for the unit."
-        "- In general, if the unit is unclear, say 'n/a'."
-        "- If you see a unicode character (e.g., 'u2152'), normalize it."
-        f"Here is the ingredient list:\n{ingredient_list}"
-    )
+    prompt_text = """
+    Organize the given ingredient list into a comma-separated shopping list with these columns: 
+    ingredient name, quantity, unit, category, recipe URL
 
-    # Send the request to Claude
+    Rules:
+    • Categories: Produce, Meat/Poultry, Seafood, Dairy, Other, Pantry
+    • Remove cooking prep details (e.g., chopped, rinsed)
+    • Combine duplicate ingredients, summing quantities
+    • Convert fractions to decimals (e.g., 1/2 to 0.5)
+    • Use 'to taste' for unspecified quantities, 'n/a' for unclear units
+    • For ingredients with options (e.g., "basil or parsley"), list as is
+    • For combined ingredients (e.g., "tomatoes and garlic"), list separately
+    • Separate multiple recipe URLs with semicolons
+    • Avoid commas within fields and extra punctuation
+
+    Example output:
+    tomato, 2, lbs, Produce, https://example.com/recipe1
+    salt, 1, tsp, Pantry, https://example.com/recipe1;https://example.com/recipe2
+
+    Ingredient list:
+    {ingredient_list}
+
+    Respond only with the formatted shopping list, no additional text.
+    """
+
     response = client.messages.create(
         model=CLAUDE_3_OPUS_20240229,
         max_tokens=1000,
@@ -37,9 +38,7 @@ def send_to_claude(ingredient_list):
         ]
     )
 
-    # Retrieve the completion
-    shopping_list = response.content[0].text.strip()
-    return shopping_list
+    return response.content[0].text.strip()
 
 def save_shopping_list_to_csv(shopping_list, filename):
     # Split the shopping list into rows based on new lines
@@ -49,14 +48,15 @@ def save_shopping_list_to_csv(shopping_list, filename):
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         
-        # Define and write the header row
-        headers = ['ingredient_name', 'quantity', 'unit', 'category']
+        # Define and write the header row (added 'recipeLink' column)
+        headers = ['ingredient_name', 'quantity', 'unit', 'category', 'recipeLink']
         writer.writerow(headers)
         
         # Write each row to the CSV file
         for row in rows:
             # Split each row into columns by comma
             writer.writerow(row.split(','))
+
 
 # Example usage
 if __name__ == "__main__":

@@ -21,9 +21,9 @@ const Home = () => {
           <span className="lighter-text">in seconds.</span>
         </h2>
         <img
-          src="/carrot_jumping_into_basket.png"
-          alt="Carrot jumping into basket"
-          className="carrot-image"
+          src="/thin_radish_jumping_into_basket.png"
+          alt="Thin radish jumping into basket"
+          className="veg-image"
         />
       </div>
       <div className="paste-text">
