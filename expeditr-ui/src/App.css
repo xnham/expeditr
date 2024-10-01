@@ -14,105 +14,12 @@
   width: 100%; /* Ensure main content takes full width */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(21, 46, 44, 0.95);
-  /* Dark overlay */
-  display: flex;
-  flex-direction: column;
-  /* Vertical stacking */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  /* Stack text and spinner vertically */
-  align-items: center;
-  /* Center align items */
-}
-
-.loading-text-and-dots {
-  display: flex;
-  flex-direction: row;
-  /* Stack text and dots horizontally */
-  align-items: center;
-  /* Center align items */
-  margin-bottom: 30px;
-}
-
-.loading-text {
-  color: #FFF8ED;
-  font-size: 32px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  /* Align text and dots vertically */
-}
-
-.loading-dots span {
-  opacity: 0;
-  /* Start with dots hidden */
-  animation: blink-dot 1.5s infinite;
-  color: #FFF8ED;
-  font-size: 32px;
-}
-
-.loading-dots span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.5s;
-  /* Starts half a second later */
-}
-
-.loading-dots span:nth-child(3) {
-  animation-delay: 1s;
-  /* Starts one second later */
-}
-
-@keyframes blink-dot {
-
-  0%,
-  20%,
-  100% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
 }
 
 .error-message {

@@ -1,11 +1,15 @@
 import os
 import csv
-from anthropic import Anthropic, CLAUDE_3_OPUS_20240229
+from anthropic import Anthropic
 
 def send_to_claude(ingredient_list):
     client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
-    prompt_text = """
+    # Ensure ingredient_list is a string
+    if isinstance(ingredient_list, list):
+        ingredient_list = "\n".join(ingredient_list)
+
+    prompt_text = f"""
     Organize the given ingredient list into a comma-separated shopping list with these columns: 
     ingredient name, quantity, unit, category, recipe URL
 
@@ -31,32 +35,41 @@ def send_to_claude(ingredient_list):
     """
 
     response = client.messages.create(
-        model=CLAUDE_3_OPUS_20240229,
-        max_tokens=1000,
+        model="claude-3-opus-20240229",
+        max_tokens=3000,
         messages=[
             {"role": "user", "content": prompt_text}
         ]
     )
 
-    return response.content[0].text.strip()
+    # Extract the content from the response
+    if isinstance(response.content, list) and len(response.content) > 0:
+        # If it's a list of TextBlock objects, join their text
+        return '\n'.join(block.text for block in response.content if hasattr(block, 'text'))
+    elif isinstance(response.content, str):
+        return response.content
+    else:
+        raise ValueError(f"Unexpected response format from Claude: {type(response.content)}")
 
 def save_shopping_list_to_csv(shopping_list, filename):
-    # Split the shopping list into rows based on new lines
-    rows = shopping_list.split('\n')
-    
     # Open a file in write mode
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         
-        # Define and write the header row (added 'recipeLink' column)
-        headers = ['ingredient_name', 'quantity', 'unit', 'category', 'recipeLink']
+        # Define and write the header row
+        headers = ['ingredient_name', 'quantity', 'unit', 'category', 'recipeLink', 'titles']
         writer.writerow(headers)
         
-        # Write each row to the CSV file
-        for row in rows:
-            # Split each row into columns by comma
-            writer.writerow(row.split(','))
-
+        # Write each item to the CSV file
+        for item in shopping_list:
+            writer.writerow([
+                item['name'],
+                item['quantity'],
+                item['unit'],
+                item['category'],
+                ';'.join(item['urls']),
+                ';'.join(item.get('titles', []))
+            ])
 
 # Example usage
 if __name__ == "__main__":
@@ -64,6 +77,8 @@ if __name__ == "__main__":
     with open("ingredients_list.txt", "r") as file:
         ingredient_list = file.read()
     
+    print(f"API Key: {os.getenv('ANTHROPIC_API_KEY')}")
+
     shopping_list = send_to_claude(ingredient_list)
     print("Generated Shopping List:\n", shopping_list)
 

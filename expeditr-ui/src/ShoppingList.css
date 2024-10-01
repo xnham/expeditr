@@ -54,7 +54,7 @@
 
 .SubheadingRow {
     display: grid;
-    grid-template-columns: 60px 240px 120px 360px;
+    grid-template-columns: 60px 280px 120px 320px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 12px;
@@ -80,7 +80,7 @@
 /* Regular Rows */
 .ListItem {
     display: grid;
-    grid-template-columns: 60px 240px 120px 360px;
+    grid-template-columns: 60px 280px 120px 320px;
     /* Fixed column widths */
     align-items: stretch;
     /* Stretch items to fill the row height */
